@@ -1,5 +1,6 @@
 
 var index;
+var issue_id = $('#key-val').attr('rel');
 
 var success = function(data) {
 	var html = data.fields[3].editHtml;
@@ -31,7 +32,7 @@ var success = function(data) {
 
 	$.ajax({
 	  url: "https://sheknows.jira.com/secure/AjaxIssueAction.jspa?decorator=none",
-	  data: {description:des2,issueId:31078,atl_token:token,singleFieldEdit:true,fieldsToForcePresent:'description'},
+	  data: {description:des2,issueId:issue_id,atl_token:token,singleFieldEdit:true,fieldsToForcePresent:'description'},
 	  type: 'POST',
 	  //success: success,
 	  dataType: 'json'
@@ -50,7 +51,7 @@ $(".panel img.emoticon").click(function(e) {
 
 	$.ajax({
 	  url: "https://sheknows.jira.com/secure/AjaxIssueEditAction!default.jspa",
-	  data: {decorator:'none',issueId:31078},
+	  data: {decorator:'none',issueId:issue_id},
 	  type: 'GET',
 	  success: success,
 	  dataType: 'json'
